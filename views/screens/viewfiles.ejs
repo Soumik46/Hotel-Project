@@ -1,0 +1,17 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Viewer</title>
+</head>
+<body>
+  <h1>Image Viewer</h1>
+    <% for(room of rooms) {%>
+        
+        <h1><%=room.id%> </h1> <h1> <%=room.roomType%></h1>
+        <!-- <% for(image of room.images) {%>
+  <img id="image" src="data:image/png;base64, <%= image.data %>" alt="Image" style="max-width: 400px;">
+            <%}%> -->
+  <%}%>
+</body>
+</html>

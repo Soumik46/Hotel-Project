@@ -2,30 +2,26 @@ const express= require('express')
 const app= express();
 const path= require('path');
 const mongoose= require('mongoose');
-
+const db= require('./connectDB');
 
 app.set('view engine','ejs');
-app.set('views','views/public');
+app.set('views','views');
 
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-const userController= require('./controller/userController');
+//static middleware
+app.use(express.static(path.join(__dirname,'public')))
 
-mongoose.connect('mongodb://localhost:27017/Hotel-App')
-.then(()=>{
-    console.log("Connected to DB");
-})
-.catch(err=>{
-    console.log(err);
-})
+//Route Handlers
+const userRoutes= require('./routes/userRoutes');
+const hotelRoutes= require('./routes/hotelRoutes');
+// const adminRoutes= require('./routes/adminRoutes');
 
-app.get('/register',userController.renderSignUp);
-app.post('/register',userController.saveSignUp);
-app.get('/',(req,res)=>{
-    res.render('home');
-})
+app.use('/user',userRoutes);
+app.use('/',hotelRoutes);
+// app.use('/admin',adminRoutes);
 
 app.listen(4000,()=>{
     console.log("Listening on 4000")

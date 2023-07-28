@@ -1,0 +1,23 @@
+<%- include('../layouts/header.ejs')%>
+
+<div class="container-md mt-5">
+    <div class="row mb-4 display-card">
+        <div class="col-md-3 IMG">
+        </div>
+        <div class="col-md-6 DETAILS">
+            <h1><%=room.hotel.name%></h1>
+            <p><%=room.hotel.city%></p>
+            <p><b>Room Type:</b> <%=room.roomType%></p>
+            <p><b>From: </b> <%= obj.from%></p>
+            <p><b>To: </b> <%= obj.to%></p>
+        </div>
+        <div class="col-md-2">
+
+            <p><b>Bill Amount: Rs <%=obj.amount%></b></p>
+            <a class="btn btn-primary " href="#">Proceed to Pay</a>
+
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer.ejs')%>

@@ -1,0 +1,29 @@
+<%- include('../layouts/header.ejs')%>
+
+<h1 class="text-center">See Hotels</h1>
+<div class="container-md panel">
+
+    
+
+<div class="container-md">
+<% for(let hotel of hotels){ %>
+    <div class="row mb-4 display-card">
+        <div class="col-md-3 IMG">
+        </div>
+        <div class="col-md-6 DETAILS">
+            <h1><%=hotel.name%></h1>
+            <p><%=hotel.city%></p>
+            <p><%=hotel.description%></p>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary mt-5" href="/view/<%=hotel._id%>">View Rooms</a>
+
+        </div>
+    </div>
+    
+    <%}%>
+
+
+</div>
+</div>
+<%- include('../layouts/footer.ejs')%>

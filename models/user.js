@@ -9,6 +9,9 @@ const userSchema= new mongoose.Schema({
         type:String,
         required: true
     },
+    password:{
+        type:String,required:true
+    },
     mobileNo:{
         type: String,
         required: true
@@ -24,7 +27,11 @@ const userSchema= new mongoose.Schema({
     PIN:{
         type:String,
         required: true
-    }
+    },
+    bookings:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Booking'
+    }]
 })
 
 module.exports= mongoose.model('User',userSchema);
